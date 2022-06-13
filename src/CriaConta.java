@@ -1,3 +1,4 @@
+
 public class CriaConta {
 
     public static void main(String[] args) {
@@ -7,35 +8,58 @@ public class CriaConta {
 		mariana.setCpf("222.222.222.-22");
 		mariana.setProfissao("Etéticista");
 
-        Conta contaDaMariana = new Conta(6646, 969060);
+        ContaCorrente ccDaMariana = new ContaCorrente(6646, 969060);
+        ContaPoupanca cpDaMariana = new ContaPoupanca(6646, 969060-1);
+        SeguroDeVida seguroDaMariana = new SeguroDeVida();
 
-        contaDaMariana.setTitular(mariana);
-        contaDaMariana.deposita(1000);
+        CalculadorDeImpostos impostosMariana = new CalculadorDeImpostos();
+        impostosMariana.registra(seguroDaMariana);
+        impostosMariana.registra(ccDaMariana);
+
+        ccDaMariana.setTitular(mariana);
+        ccDaMariana.deposita(1000);
+        cpDaMariana.setTitular(mariana);
+        ccDaMariana.transfere(100, cpDaMariana);
 
         Cliente nero = new Cliente();
         nero.setNome("Nero");
 		nero.setCpf("222.222.222.-22");
 		nero.setProfissao("Programador");
 
-        Conta contaDoNero = new Conta(6645, 969061);
+        ContaCorrente ccDoNero = new ContaCorrente(6645, 969061);
+        ContaPoupanca cpDoNero = new ContaPoupanca(6645, 969061-1);
+        SeguroDeVida seguroDoNero = new SeguroDeVida();
 
-        contaDoNero.setTitular(nero);
-        contaDoNero.deposita(5000);
+        CalculadorDeImpostos impostosNero = new CalculadorDeImpostos();
+        impostosNero.registra(seguroDoNero);
+        impostosNero.registra(ccDoNero);
 
 
-        System.out.println("Agencia: " + contaDaMariana.getAgencia());
-        System.out.println("Conta: " + contaDaMariana.getNumero());
-        System.out.println("Nome: " + contaDaMariana.getTitular().getNome());
-        System.out.println("Saldo: R$" + contaDaMariana.getSaldo());
+        ccDoNero.setTitular(nero);
+        cpDoNero.setTitular(nero);
+        ccDoNero.deposita(5000);
+        ccDoNero.transfere(1000, cpDoNero);
+
+
+
+        System.out.println("Agencia: " + ccDaMariana.getAgencia());
+        System.out.println("Conta: " + ccDaMariana.getNumero());
+        System.out.println("Nome: " + ccDaMariana.getTitular().getNome());
+        System.out.println("Saldo: R$" + ccDaMariana.getSaldo());
+        System.out.println("Conta Poupança R$" + cpDaMariana.getSaldo());
+        System.out.println(impostosMariana.getTotalImposto());
 
         System.out.println();
 
-        System.out.println("Agencia: " + contaDoNero.getAgencia());
-        System.out.println("Conta: " + contaDoNero.getNumero());
-        System.out.println("Nome: " + contaDoNero.getTitular().getNome());
-        System.out.println("Saldo: R$" + contaDoNero.getSaldo());
+        System.out.println("Agencia: " + ccDoNero.getAgencia());
+        System.out.println("Conta: " + ccDoNero.getNumero());
+        System.out.println("Nome: " + ccDoNero.getTitular().getNome());
+        System.out.println("Saldo: R$" + ccDoNero.getSaldo());
+        System.out.println("Conta Poupança R$" + cpDoNero.getSaldo());
+        System.out.println(impostosNero.getTotalImposto());
 
 
     }
 
+  
 }
