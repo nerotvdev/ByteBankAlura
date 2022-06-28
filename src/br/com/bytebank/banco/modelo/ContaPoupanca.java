@@ -1,3 +1,4 @@
+package br.com.bytebank.banco.modelo;
 public class ContaPoupanca extends Conta {
     
     public ContaPoupanca(int agencia, int numero) {
@@ -10,4 +11,8 @@ public class ContaPoupanca extends Conta {
 
     }
     
+    @Override
+    public String toString() {
+        return "Conta Poupança:\n" + super.toString();
+    }
 }

@@ -1,3 +1,4 @@
+package br.com.bytebank.banco.modelo;
 public abstract class Conta {
 
 	protected double saldo;
@@ -73,6 +74,11 @@ public abstract class Conta {
 
 	public static int getTotal() {
 		return Conta.total;
+	}
+
+	@Override
+	public String toString() {
+		return "Titular: " + this.titular.getNome() + "\n" + "CPF: " + this.titular.getCpf() + "\n" + "Agencia: " + this.agencia + "\n" + "Número: " + this.numero + "\n" + "Saldo: R$" + this.saldo;
 	}
 
 }

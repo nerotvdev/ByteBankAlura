@@ -1,3 +1,9 @@
+package br.com.bytebank.banco.test;
+import br.com.bytebank.banco.modelo.CalculadorDeImpostos;
+import br.com.bytebank.banco.modelo.Cliente;
+import br.com.bytebank.banco.modelo.ContaCorrente;
+import br.com.bytebank.banco.modelo.ContaPoupanca;
+import br.com.bytebank.banco.modelo.SeguroDeVida;
 
 public class CriaConta {
 
@@ -41,7 +47,7 @@ public class CriaConta {
         ccDoNero.transfere(1000, cpDoNero);
 
 
-
+/* 
         System.out.println("Agencia: " + ccDaMariana.getAgencia());
         System.out.println("Conta: " + ccDaMariana.getNumero());
         System.out.println("Nome: " + ccDaMariana.getTitular().getNome());
@@ -57,6 +63,16 @@ public class CriaConta {
         System.out.println("Saldo: R$" + ccDoNero.getSaldo());
         System.out.println("Conta Poupança R$" + cpDoNero.getSaldo());
         System.out.println(impostosNero.getTotalImposto());
+ */
+        System.out.println();
+        System.out.println(ccDoNero);
+        System.out.println();
+        System.out.println(cpDoNero);
+
+        System.out.println();
+        System.out.println(ccDaMariana);
+        System.out.println();
+        System.out.println(cpDaMariana);
 
 
     }
